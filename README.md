@@ -19,62 +19,62 @@
 
 ```
 @Test
-   // Utilizando o UtilsClass temos:
+	// Utilizando o UtilsClass temos:
 	public void checkHttpStatusCodePeople(int httpStatusCode) {
-	   // verifica o http status code da resposta do serviço.
+	// verifica o http status code da resposta do serviço.
 		UtilsClass.assertHttpStatusCode(httpStatusCode);
 	}
 
 	@Test
 	public void checkResponseBodyPeople(String value) {
-// Compara o valor retornado no serviço. Verifica o valor de uma chave do JSON.
+	// Compara o valor retornado no serviço. Verifica o valor de uma chave do JSON.
 		UtilsClass.compareValueResponseString(value);
 	}
 
 	@Test
 	public void checkResponseBodyPeople(DataTable dataTable) {
-// Faz a validação dos valores de uma lista retornada no serviço.
-// Verifica se o JSON possui o mesmo valor da sua tabela em formato Gherkin,
-// comparando os valores de ambas.
-// na Assert, a função verifica a quantidade de linhas comparadas, que para retornar verdadeiro,
-// deverá retornar o mesmo tamanho do JSON da resposta.
-// Ex:
-// | Nome   |
-// | João   |
-// | Maria  |
-// | Carlos |
-// JSON:
-// {
-//   Nome: [João, Maria, Carla]
-// }
-// Nesse caso o comparação retornará false, pois o nome Carlos não existe no JSON, logo
-// o Assert retornará esperado [3] encontrado [4].
+	// Faz a validação dos valores de uma lista retornada no serviço.
+	// Verifica se o JSON possui o mesmo valor da sua tabela em formato Gherkin,
+	// comparando os valores de ambas.
+	// na Assert, a função verifica a quantidade de linhas comparadas, que para retornar verdadeiro,
+	// deverá retornar o mesmo tamanho do JSON da resposta.
+	// Ex:
+	// | Nome   |
+	// | João   |
+	// | Maria  |
+	// | Carlos |
+	// JSON:
+	// {
+	//   Nome: [João, Maria, Carla]
+	// }
+	// Nesse caso o comparação retornará false, pois o nome Carlos não existe no JSON, logo
+	// o Assert retornará esperado [3] encontrado [4].
 		UtilsClass.assertResponseList(UtilsClass.getDataTable(dataTable), UtilsClass.getResponse());
 	}
 
 	@Test
 	public void checkResponseBodyPeople(DataTable dataTable, String key) {
-// A função faz o mesmo que a apresentada acima, a única diferença é que aqui ordenamos
-// alfabeticamente e também devemos passar como parâmetro o a chave da lista.
-// Ex:
-// | Nome   |
-// | João   |
-// | Maria  |
-// | Carlos |
-//  checkResponseBodyPeople(UtilsClass.getDataTable(dataTable), "Nome"));
-// No contexto, o nome é passado via Gherkin.
+	// A função faz o mesmo que a apresentada acima, a única diferença é que aqui ordenamos
+	// alfabeticamente e também devemos passar como parâmetro o a chave da lista.
+	// Ex:
+	// | Nome   |
+	// | João   |
+	// | Maria  |
+	// | Carlos |
+	//  checkResponseBodyPeople(UtilsClass.getDataTable(dataTable), "Nome"));
+	// No contexto, o nome é passado via Gherkin.
 		UtilsClass.assertResponseListReduced(UtilsClass.getDataTable(dataTable), UtilsClass.getIndexFromResponse(key));
 	}
 	
-// Na classe BookAPIClass, existem exemplos mais simples de como implementar o Rest Assured.
-// É usado como comparador a biblioteca Hamcrest Matchers.
+	// Na classe BookAPIClass, existem exemplos mais simples de como implementar o Rest Assured.
+	// É usado como comparador a biblioteca Hamcrest Matchers.
 	
-// Na classe APIRegister, são registradas as classes que fazem a chamada de API. Dessa forma, não
-// há necessidade de instânciar um novo objeto toda vez que queira utilizar as classes de chamada
-// para as APIs, basta estender a classe APIRegister nas Classes de Step Definition e você terá acesso
-// aos métodos públicos da classe.
-// Ex:
-// public class GetMethodClassStepDef extends APIRegister { ... }
+	// Na classe APIRegister, são registradas as classes que fazem a chamada de API. Dessa forma, não
+	// há necessidade de instânciar um novo objeto toda vez que queira utilizar as classes de chamada
+	// para as APIs, basta estender a classe APIRegister nas Classes de Step Definition e você terá acesso
+	// aos métodos públicos da classe.
+	// Ex:
+	// public class GetMethodClassStepDef extends APIRegister { ... }
 ```
 
 ## Links
