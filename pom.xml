@@ -176,8 +176,7 @@
 					<customParameters>
 						<Custom_Parameter>-- Resultado dos testes de API --</Custom_Parameter>
 						<Custom_URL>-- QUALQUER --</Custom_URL>
-						<_KeysStartingWithAnUnderscoreAreHidden>REPORT - Resultados dos
-							testes das APIs.</_KeysStartingWithAnUnderscoreAreHidden>
+						<_KeysStartingWithAnUnderscoreAreHidden>REPORT - Resultados dos Testes das APIs.</_KeysStartingWithAnUnderscoreAreHidden>
 					</customParameters>
 
 					<!-- Optional custom colors for passed, failed and skipped -->
