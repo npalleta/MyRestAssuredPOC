@@ -124,14 +124,12 @@
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-jvm-deps</artifactId>
 			<version>${cucumber-jvm-deps.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/info.cukes/gherkin -->
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>gherkin</artifactId>
 			<version>${gherkin.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -178,7 +176,8 @@
 					<customParameters>
 						<Custom_Parameter>-- Resultado dos testes de API --</Custom_Parameter>
 						<Custom_URL>-- QUALQUER --</Custom_URL>
-						<_KeysStartingWithAnUnderscoreAreHidden>REPORT - Resultados dos testes das APIs.</_KeysStartingWithAnUnderscoreAreHidden>
+						<_KeysStartingWithAnUnderscoreAreHidden>REPORT - Resultados dos
+							testes das APIs.</_KeysStartingWithAnUnderscoreAreHidden>
 					</customParameters>
 
 					<!-- Optional custom colors for passed, failed and skipped -->
