@@ -36,8 +36,8 @@
 	// Faz a validação dos valores de uma lista retornada no serviço.
 	// Verifica se o JSON possui o mesmo valor da sua tabela em formato Gherkin,
 	// comparando os valores de ambas.
-	// na Assert, a função verifica a quantidade de linhas comparadas, que para retornar verdadeiro,
-	// deverá retornar o mesmo tamanho do JSON da resposta.
+	// No Assert, a função verifica a quantidade de linhas comparadas, que para retornar verdadeiro,
+	// deverá ter o mesmo tamanho do JSON da resposta.
 	// Ex:
 	// | Nome   |
 	// | João   |
@@ -47,15 +47,15 @@
 	// {
 	//   Nome: [João, Maria, Carla]
 	// }
-	// Nesse caso o comparação retornará false, pois o nome Carlos não existe no JSON, logo
-	// o Assert retornará esperado [3] encontrado [4].
+	// Nesse caso, a comparação será false, pois o nome Carlos não existe no JSON, logo
+	// o Assert retornará como resultado esperado [3] e encontrado [4].
 		UtilsClass.assertResponseList(UtilsClass.getDataTable(dataTable), UtilsClass.getResponse());
 	}
 
 	@Test
 	public void checkResponseBodyPeople(DataTable dataTable, String key) {
 	// A função faz o mesmo que a apresentada acima, a única diferença é que aqui ordenamos
-	// alfabeticamente e também devemos passar como parâmetro o a chave da lista.
+	// alfabeticamente. Também devemos passar como parâmetro a chave da lista.
 	// Ex:
 	// | Nome   |
 	// | João   |
@@ -71,8 +71,8 @@
 	
 	// Na classe APIRegister, são registradas as classes que fazem a chamada de API. Dessa forma, não
 	// há necessidade de instânciar um novo objeto toda vez que queira utilizar as classes de chamada
-	// para as APIs, basta estender a classe APIRegister nas Classes de Step Definition e você terá acesso
-	// aos métodos públicos da classe.
+	// para as APIs, basta estender a APIRegister nas classes de Step Definition e você terá acesso
+	// aos métodos públicos da classe estendida.
 	// Ex:
 	// public class GetMethodClassStepDef extends APIRegister { ... }
 ```
