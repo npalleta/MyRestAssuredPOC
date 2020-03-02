@@ -2,7 +2,6 @@ package br.com.restassured.example;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -40,8 +39,6 @@ public class Rectangle implements Serializable {
 			objectStream.close();
 			fileStream.close();
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -61,12 +58,9 @@ public class Rectangle implements Serializable {
 			fileStream.close();
 
 			return deserializeObject;
-		} catch (FileNotFoundException e) {
+		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+
 		}
 		return null;
 	}
