@@ -28,7 +28,7 @@ public class BookAPIClassStepDef extends APIRegister {
 	public void a_resposta_deverá_comtemplar_os_dados_abaixo(Map<String, String> responseFields) {
 		bookAPIClass().getResponseUsingEqualTo(responseFields);
 	}
-	
+
 	@Então("^deverá retornar os dados à seguir em alguma ordem$")
 	public void deverá_retornar_os_dados_à_seguir_em_alguma_ordem(Map<String, String> responseFields) {
 		bookAPIClass().getResponseUsingInAnyOrder(responseFields);

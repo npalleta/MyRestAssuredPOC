@@ -28,7 +28,6 @@ public class GetMethodClassStepDef extends APIRegister {
 	@Então("^a altura deverá ser \"([^\"]*)\"$")
 	public void a_altura_deverá_ser(String altura) {
 		getMethodClass().checkResponseBodyPeople(altura);
-
 	}
 
 	@Então("^o peso deverá ser \"([^\"]*)\"$")

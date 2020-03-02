@@ -20,7 +20,7 @@ public class ExecutionClass {
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());
 		}
-		
+
 		// Classe que contém a execução do relatório - Cluecumber
 		jUnitCore.run(ReportClass.class);
 	}
