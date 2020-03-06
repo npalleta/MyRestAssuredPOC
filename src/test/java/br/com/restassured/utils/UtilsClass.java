@@ -132,7 +132,7 @@ public class UtilsClass {
 			for (int i = 0; i < values.length; i++) {
 				if (removeBracketsAndDoubleQuotes(values[i]).equals(value)) {
 					System.out.println(String.format("Resultado | %s |", values[i]));
-					itr = itr += 1;
+					itr += 1;
 					/*
 					 * Assert.assertTrue(removeBracketsAndDoubleQuotes(values[i]).equals(value),
 					 * String.format("The value %s is not equal %s!", values[i], value)); break;
@@ -155,7 +155,7 @@ public class UtilsClass {
 		try {
 			strList = dataTable.asList(String.class);
 			for (String strData : strList) {
-				itr = itr += 1;
+				itr += 1;
 				System.out.println(String.format("Resultado (%d): %s.", itr, strData));
 			}
 		} catch (Exception e) {
@@ -173,6 +173,7 @@ public class UtilsClass {
 		List<Object> ObjList = result.entrySet().stream().map(v -> v.getValue()).collect(Collectors.toList());
 		String jsonString = new Gson().toJson(ObjList);
 		strArr = jsonString.split(",");
+
 		for (String strValue : strArr) {
 			linkedList.add(removeBracketsAndDoubleQuotes(strValue));
 		}
@@ -192,7 +193,7 @@ public class UtilsClass {
 		for (String strA : listA) {
 			for (String strB : listB) {
 				if (strA.equals(strB)) {
-					itr = itr += 1;
+					itr += 1;
 					System.out.println(
 							String.format("--- VALIDADO --- Resultado Massa (%d): %s | Resultado JSON (%d): %s.", itr,
 									strA, itr, strB));
@@ -222,7 +223,7 @@ public class UtilsClass {
 
 		listB = putInAlphabeticalOrder(listB);
 
-		listA.stream().filter(listB::contains).collect(Collectors.toList());
+		listB = listA.stream().filter(listB::contains).collect(Collectors.toList());
 	}
 
 	private static String removeBracketsAndDoubleQuotes(String strValue) {
