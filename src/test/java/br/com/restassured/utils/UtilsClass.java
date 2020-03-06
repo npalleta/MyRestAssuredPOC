@@ -156,7 +156,7 @@ public class UtilsClass {
 			strList = dataTable.asList(String.class);
 			for (String strData : strList) {
 				itr = itr += 1;
-				System.out.println(String.format("Resultado [%d]: %s.", itr, strData));
+				System.out.println(String.format("Resultado (%d): %s.", itr, strData));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -181,7 +181,7 @@ public class UtilsClass {
 
 	public static void assertHttpStatusCode(int httpStatusCode) {
 		Assert.assertEquals(ResponseDAO.getHttpStatusCode() /* Actual Value */, httpStatusCode /* Expected value */,
-				String.format("O HTTP Status Code atual [%s] é diferente do esperado [%s]!",
+				String.format("O HTTP Status Code atual (%s) é diferente do esperado (%s)!",
 						ResponseDAO.getHttpStatusCode(), httpStatusCode));
 	}
 
@@ -194,7 +194,7 @@ public class UtilsClass {
 				if (strA.equals(strB)) {
 					itr = itr += 1;
 					System.out.println(
-							String.format("--- VALIDADO --- Resultado Massa [%d]: %s | Resultado JSON [%d]: %s.", itr,
+							String.format("--- VALIDADO --- Resultado Massa (%d): %s | Resultado JSON (%d): %s.", itr,
 									strA, itr, strB));
 				}
 			}
@@ -212,8 +212,17 @@ public class UtilsClass {
 
 		for (int i = 0; i < listA.size(); i++) {
 			Assert.assertEquals(listB.get(i) /* Actual Value */, listA.get(i) /* Expected value */, String
-					.format("O valor atual [%s] não é o mesmo que o valor esperado [%s]!", listB.get(i), listA.get(i)));
+					.format("O valor atual (%s) não é o mesmo que o valor esperado (%s)!", listB.get(i), listA.get(i)));
 		}
+	}
+
+	public void assertResponseListReducedUsingStream(List<String> listA, List<String> listB) {
+
+		listA = putInAlphabeticalOrder(listA);
+
+		listB = putInAlphabeticalOrder(listB);
+
+		listA.stream().filter(listB::contains).collect(Collectors.toList());
 	}
 
 	private static String removeBracketsAndDoubleQuotes(String strValue) {
@@ -240,8 +249,8 @@ public class UtilsClass {
 			outputGobbler.start();
 			int exitVal = proc.waitFor();
 			System.out.println("ExitValue: " + exitVal);
-		} catch (Throwable t) {
-			t.printStackTrace();
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
