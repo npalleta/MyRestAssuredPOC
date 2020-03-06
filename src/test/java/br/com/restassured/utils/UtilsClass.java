@@ -248,7 +248,7 @@ public class UtilsClass {
 	/**
 	 * Verifica se o Cucumber.json existe no diretório.
 	 */
-	public static void checkFileCreatedExists() {
+	public static void checkCucumberJsonCreatedExists() {
 
 		try {
 			while (!cucumberJson.exists()) {
@@ -263,7 +263,7 @@ public class UtilsClass {
 	/**
 	 * Exclui o Cucumber.json existente no diretório.
 	 */
-	public static void deleteFileIfExists() {
+	public static void deleteCucumberJsonIfExists() {
 
 		try {
 			if (cucumberJson.delete())

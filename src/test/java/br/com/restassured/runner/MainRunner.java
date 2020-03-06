@@ -40,7 +40,7 @@ public class MainRunner {
 	
 	@BeforeClass
 	public static void before() {
-		UtilsClass.deleteFileIfExists();
+		UtilsClass.deleteCucumberJsonIfExists();
 	}
 	
 	@AfterClass
