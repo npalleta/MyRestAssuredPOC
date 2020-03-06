@@ -27,8 +27,6 @@ import cucumber.api.DataTable;
 
 public class UtilsClass {
 
-	private static final File cucumberJson = new File("../MyRestAssuredPOC/target/cucumber-reports/Cucumber.json");
-
 	private static JSONParser getJSONParser() {
 		return new JSONParser();
 	}
@@ -256,30 +254,30 @@ public class UtilsClass {
 	}
 
 	/**
-	 * Verifica se o Cucumber.json existe no diretório.
+	 * Verifica se existe determinado arquivo em um diretório.
 	 */
-	public static void checkCucumberJsonCreatedExists() {
+	public static void checkFileExists(File file) {
 
 		try {
-			while (!cucumberJson.exists()) {
+			while (!file.exists()) {
 				continue;
 			}
-			System.out.println("O Cucumber.json foi criado / existe!");
+			System.out.println(String.format("O %s foi criado / existe!", file.getName()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Exclui o Cucumber.json existente no diretório.
+	 * Exclui um determinado arquivo existente no diretório.
 	 */
-	public static void deleteCucumberJsonIfExists() {
+	public static void deleteFileIfExists(File file) {
 
 		try {
-			if (cucumberJson.delete())
-				System.out.println(String.format("O %s foi deletado!", cucumberJson.getName()));
+			if (file.delete())
+				System.out.println(String.format("O %s foi deletado!", file.getName()));
 			else
-				System.out.println("A Exclusão do Cucumber.json falhou!");
+				System.out.println(String.format("A Exclusão do %s falhou!", file.getName()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,7 @@
 package br.com.restassured.runner;
 
+import java.io.File;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -40,7 +42,7 @@ public class MainRunner {
 	
 	@BeforeClass
 	public static void before() {
-		UtilsClass.deleteCucumberJsonIfExists();
+		UtilsClass.deleteFileIfExists(new File("../MyRestAssuredPOC/target/cucumber-reports/Cucumber.json"));
 	}
 	
 	@AfterClass
