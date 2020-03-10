@@ -10,7 +10,6 @@ public class ExecutionClass {
 
 	public static void main(String[] args) {
 		JUnitCore jUnitCore = new JUnitCore();
-		jUnitCore.run(MainRunner.class);
 		Result result = jUnitCore.run(MainRunner.class);
 		System.out.println("Failure Count: " + result.getFailureCount());
 		System.out.println("IgnoreCount: " + result.getIgnoreCount());
