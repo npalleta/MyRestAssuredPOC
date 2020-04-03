@@ -22,7 +22,7 @@ import org.testng.Assert;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
-import br.com.restassured.model.ResponseDAO;
+import br.com.restassured.model.ResponseClass;
 import cucumber.api.DataTable;
 
 public class UtilsClass {
@@ -103,7 +103,7 @@ public class UtilsClass {
 	@SuppressWarnings("unchecked")
 	public static List<String> getIndexFromResponse(String key) {
 
-		JSONObject jsonObject = new JSONObject(getDataMapFromResponse(ResponseDAO.getResponse()));
+		JSONObject jsonObject = new JSONObject(getDataMapFromResponse(ResponseClass.getResponse()));
 		List<String> list = (List<String>) jsonObject.get(key);
 		return list;
 	}
@@ -120,7 +120,7 @@ public class UtilsClass {
 
 		int itr = 0;
 
-		HashMap<String, Object> result = getDataMapFromResponse(ResponseDAO.getResponse());
+		HashMap<String, Object> result = getDataMapFromResponse(ResponseClass.getResponse());
 		Set<String> entrySet = result.keySet();
 		for (String key : entrySet) {
 			ObjValue = result.get(key);
@@ -167,7 +167,7 @@ public class UtilsClass {
 		String[] strArr = null;
 		List<String> linkedList = new LinkedList<>();
 
-		HashMap<String, Object> result = getDataMapFromResponse(ResponseDAO.getResponse());
+		HashMap<String, Object> result = getDataMapFromResponse(ResponseClass.getResponse());
 		List<Object> ObjList = result.entrySet().stream().map(v -> v.getValue()).collect(Collectors.toList());
 		String jsonString = new Gson().toJson(ObjList);
 		strArr = jsonString.split(",");
@@ -179,9 +179,9 @@ public class UtilsClass {
 	}
 
 	public static void assertHttpStatusCode(int httpStatusCode) {
-		Assert.assertEquals(ResponseDAO.getHttpStatusCode() /* Actual Value */, httpStatusCode /* Expected value */,
+		Assert.assertEquals(ResponseClass.getHttpStatusCode() /* Actual Value */, httpStatusCode /* Expected value */,
 				String.format("O HTTP Status Code atual (%s) é diferente do esperado (%s)!",
-						ResponseDAO.getHttpStatusCode(), httpStatusCode));
+						ResponseClass.getHttpStatusCode(), httpStatusCode));
 	}
 
 	public static void assertResponseList(List<String> listA, List<String> listB) {

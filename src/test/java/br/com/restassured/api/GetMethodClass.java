@@ -2,7 +2,7 @@ package br.com.restassured.api;
 
 import org.junit.Test;
 
-import br.com.restassured.model.ResponseDAO;
+import br.com.restassured.model.ResponseClass;
 import br.com.restassured.utils.UtilsClass;
 import cucumber.api.DataTable;
 import io.restassured.RestAssured;
@@ -20,8 +20,8 @@ public class GetMethodClass extends APIRegister {
 		Response response = httpRequest.get(String.format("/people/%s", id));
 		ResponseBody body = response.getBody();
 		String bodyAsString = body.asString();
-		ResponseDAO.setResponse(bodyAsString);
-		ResponseDAO.setHttpStatusCode(response.getStatusCode());
+		ResponseClass.setResponse(bodyAsString);
+		ResponseClass.setHttpStatusCode(response.getStatusCode());
 	}
 
 	@Test
