@@ -96,7 +96,7 @@ public class RegistrationSuccessResponse {
 
 		getBaseURI();
 
-		RequestSpecification request = RestAssured.given().auth().basic(userName, password);
+		RequestSpecification request = RestAssured.given().auth().basic(getUserName(), getPassword());
 		Response response = request.get();
 
 		System.out.println("Status code: " + response.getStatusCode());
