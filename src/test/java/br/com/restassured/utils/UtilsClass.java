@@ -234,7 +234,7 @@ public class UtilsClass {
 	public static void cmdCommand(String... args) {
 
 		if (args.length < 1) {
-			System.out.println("USAGE: java cmd command line...");
+			System.out.println("EM USO: Windows Prompt - Linha de Comando via aplicação Java...");
 			System.exit(1);
 		}
 
