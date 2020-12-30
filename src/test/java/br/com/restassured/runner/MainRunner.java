@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features = "src\\test\\resources\\features",
+	features = "src//test//resources//features",
 	format =
 	{
 		"pretty"
@@ -42,7 +42,7 @@ public class MainRunner {
 	
 	@BeforeClass
 	public static void before() {
-		UtilsClass.deleteFileIfExists(new File("../MyRestAssuredPOC/target/cucumber-reports/Cucumber.json"));
+		// UtilsClass.deleteFileIfExists(new File("../MyRestAssuredPOC/target/cucumber-reports/Cucumber.json"));
 	}
 	
 	@AfterClass

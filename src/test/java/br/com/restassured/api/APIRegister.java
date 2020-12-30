@@ -2,7 +2,7 @@ package br.com.restassured.api;
 
 public class APIRegister {
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	private static <T> T getAPI(Class<?> clazz) {
 		T api = null;
 		try {

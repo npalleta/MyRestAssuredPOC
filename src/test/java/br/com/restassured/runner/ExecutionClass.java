@@ -21,6 +21,6 @@ public class ExecutionClass {
 		}
 
 		// Classe que contém a execução do relatório - Cluecumber
-		jUnitCore.run(ReportClass.class);
+		// jUnitCore.run(ReportClass.class);
 	}
 }
